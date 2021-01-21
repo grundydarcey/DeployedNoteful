@@ -32,10 +32,10 @@
     "pg": "^8.5.1",
     "supertest": "^6.0.1",
     "timestamp": "0.0.1",
-    "postgrator-cli": "^3.2.0"
+    "postgrator-cli": "^3.2.0",
+    "nodemon": "^2.0.6"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6",
     "postgrator-cli": "^3.2.0"
   }
 }
