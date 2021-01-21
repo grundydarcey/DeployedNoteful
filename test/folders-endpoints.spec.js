@@ -4,7 +4,7 @@ const supertest = require('supertest');
 const app = require('../src/app');
 const { makeFoldersArray } = require('./folders.fixtures');
 
-describe('Folders Endpoints', function() {
+describe('Folders Endpoint', function() {
   let db;
   before('make knex instance', () => {
     db = knex({
