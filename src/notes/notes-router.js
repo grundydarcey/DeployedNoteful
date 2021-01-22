@@ -33,10 +33,10 @@ notesRouter
           error: {message: `Missing '${key}' in request body` }
         });
       }
-      newNote.folder_id = Number(folder_id);
+      /*newNote.folder_id = Number(folder_id);
       if(date_modified) {
         newNote.date_modified = date_modified;
-      }
+      }*/
 
       NotesService.insertNote(knexInstance, newNote)
         .then(note => {
