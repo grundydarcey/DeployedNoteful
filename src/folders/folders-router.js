@@ -3,10 +3,11 @@ const express = require('express');
 const FoldersService = require('./folders-service');
 const foldersRouter = express.Router();
 const jsonBodyParser = express.json();
+const xss = require('xss');
 
 const serializeFolder = folder => ({
   id: folder.id,
-  folder_name: folder.folder_name
+  folder_name: xss(folder.folder_name)
 });
 
 foldersRouter
@@ -40,7 +41,7 @@ foldersRouter
 
 foldersRouter
   .route('/:id')
-  .all((req, res, next) => {
+  .get((req, res, next) => {
     FoldersService.getById(
       req.app.get('db'),
       req.params.id
@@ -57,9 +58,9 @@ foldersRouter
       .catch(next);
   })
 
-  .get((req, res, next) => {
-    res.json(serializeFolder(res.folder));
-  })
+  // .get((req, res, next) => {
+  //   res.json(serializeFolder(res.folder));
+  // })
 
   .delete((req, res, next) => {
     const knexInstance = req.app.get('db');

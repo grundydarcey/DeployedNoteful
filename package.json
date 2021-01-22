@@ -29,11 +29,12 @@
     "knex": "^0.21.16",
     "mocha": "^8.2.1",
     "morgan": "^1.10.0",
+    "nodemon": "^2.0.6",
     "pg": "^7.18.2",
+    "postgrator-cli": "^3.2.0",
     "supertest": "^6.0.1",
     "timestamp": "0.0.1",
-    "postgrator-cli": "^3.2.0",
-    "nodemon": "^2.0.6"
+    "xss": "^1.0.8"
   },
   "devDependencies": {
     "postgrator-cli": "^3.2.0"
