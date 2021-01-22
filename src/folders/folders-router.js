@@ -42,9 +42,12 @@ foldersRouter
 foldersRouter
   .route('/:id')
   .get((req, res, next) => {
+    const folderId = req.params.id;
+    console.log(folderId, 'this is folder id from folder router');
     FoldersService.getById(
       req.app.get('db'),
-      req.params.id
+      folderId
+      //req.params.id
     )
       .then(folder => {
         if (!folder) {
@@ -52,8 +55,8 @@ foldersRouter
             error: { message: 'Folder does not exist' }
           });
         }
-        res.json(serializeFolder(res.folder));
-        next();
+        res.json(serializeFolder(folder));
+        //next();
       })
       .catch(next);
   })
