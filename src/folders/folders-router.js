@@ -52,7 +52,7 @@ foldersRouter
             error: { message: 'Folder does not exist' }
           });
         }
-        res.folder = folder;
+        res.json(serializeFolder(res.folder));
         next();
       })
       .catch(next);
