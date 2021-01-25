@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const path = require('path');
 const express = require('express');
 const FoldersService = require('./folders-service');
@@ -20,6 +21,7 @@ foldersRouter
       })
       .catch(next);
   })
+  
   .post(jsonBodyParser, (req, res, next) => {
     const knexInstance = req.app.get('db');
     const { folder_name } = req.body;
@@ -29,7 +31,6 @@ foldersRouter
         error: { message: 'Missing folder name' }
       });
     }
-
     FoldersService.insertFolder(knexInstance, newFolder)
       .then(folder => {
         res.status(201)
@@ -60,10 +61,9 @@ foldersRouter
       })
       .catch(next);
   })
-
-  // .get((req, res, next) => {
-  //   res.json(serializeFolder(res.folder));
-  // })
+// .get((req, res, next) => {
+//   res.json(serializeFolder(res.folder));
+// })
 
   .delete((req, res, next) => {
     const knexInstance = req.app.get('db');
